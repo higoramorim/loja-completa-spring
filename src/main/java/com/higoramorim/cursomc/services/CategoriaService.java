@@ -11,6 +11,7 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.higoramorim.cursomc.domain.Categoria;
+import com.higoramorim.cursomc.dto.CategoriaDTO;
 import com.higoramorim.cursomc.repositories.CategoriaRepository;
 import com.higoramorim.cursomc.services.exceptions.DataIntegrityException;
 import com.higoramorim.cursomc.services.exceptions.ObjectNotFoundException;
@@ -53,5 +54,9 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
+	}
+	
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
 	}
 }

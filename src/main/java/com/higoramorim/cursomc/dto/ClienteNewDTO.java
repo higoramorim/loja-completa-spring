@@ -2,21 +2,37 @@ package com.higoramorim.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class ClienteNewDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@NotEmpty
+	@Size(min=5, max=120, message="O nome deve ter entre 5 ou 120 caracteres")
 	private String nome;
+	
+	@NotEmpty
+	@Email(message="email inválido")
 	private String email;
+	
 	private String cpfOuCnplj;
 	private Integer tipo;	
 	
+	@NotEmpty(message="preenchimento obrigatório")
 	private String logradouro;
+	
+	@NotEmpty(message="preenchimento obrigatório")
 	private String numero;
 	private String complemento;
 	private String bairro;
 	private String cep;
 	
+	@NotEmpty(message="preenchimento obrigatório")
 	private String telefone1;
+	
 	private String telefone2;
 	private String telefone3;
 	

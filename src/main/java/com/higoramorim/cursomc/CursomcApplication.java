@@ -9,7 +9,7 @@ public class CursomcApplication implements CommandLineRunner{
 
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { //teste
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
